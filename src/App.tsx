@@ -411,6 +411,47 @@ export default function App() {
     ctx.fillStyle = '#0a0a0a';
     ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
+    // Draw Shanghai Skyline (Background)
+    ctx.fillStyle = '#1a1a1a';
+    
+    // Oriental Pearl Tower (东方明珠)
+    const opX = 100;
+    ctx.fillRect(opX - 2, 350, 4, 200); // Main spire
+    ctx.beginPath();
+    ctx.arc(opX, 420, 15, 0, Math.PI * 2); // Top sphere
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(opX, 480, 22, 0, Math.PI * 2); // Bottom sphere
+    ctx.fill();
+    
+    // Shanghai Tower (上海中心)
+    const stX = 220;
+    ctx.beginPath();
+    ctx.moveTo(stX - 25, 550);
+    ctx.lineTo(stX - 15, 250);
+    ctx.quadraticCurveTo(stX, 230, stX + 15, 250);
+    ctx.lineTo(stX + 25, 550);
+    ctx.fill();
+
+    // World Financial Center (环球金融中心 - Bottle Opener)
+    const wfX = 350;
+    ctx.fillRect(wfX - 20, 280, 40, 270);
+    ctx.clearRect(wfX - 10, 290, 20, 30); // The "hole"
+    ctx.fillStyle = '#1a1a1a'; // Restore fill style after clearRect
+    
+    // Jin Mao Tower (金茂大厦)
+    const jmX = 500;
+    for (let i = 0; i < 8; i++) {
+      const width = 40 - i * 4;
+      ctx.fillRect(jmX - width / 2, 320 + i * 30, width, 30);
+    }
+    ctx.fillRect(jmX - 2, 300, 4, 20); // Spire
+
+    // Other generic buildings
+    ctx.fillRect(600, 400, 30, 150);
+    ctx.fillRect(650, 450, 40, 100);
+    ctx.fillRect(720, 380, 25, 170);
+
     // Draw Ground
     ctx.fillStyle = '#262626';
     ctx.fillRect(0, 550, CANVAS_WIDTH, 50);
